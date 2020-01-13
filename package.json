@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/Babalon921/Mixilate#readme",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "jquery": "^3.4.1",
+    "xmlhttprequest": "^1.8.0"
   }
 }
