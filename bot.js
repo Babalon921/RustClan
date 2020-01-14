@@ -30,7 +30,8 @@ console.log("Bot Made by Babalon921 @𝔹𝕒𝕓𝕒𝕝𝕠𝕟⁹ ² ¹#0050"
 bot.on("message", msg =>{
     if(msg.author.bot) return;
     if(msg.channel.type === "dm") return;
-
+    if(!msg.content.startsWith(prefix))return;
+    
     let msgarray = msg.content.split(/ +/);
     let cmd = msgarray[0];
     let args = msgarray.slice(1);
