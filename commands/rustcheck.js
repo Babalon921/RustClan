@@ -45,7 +45,7 @@ module.exports.run = (bot,msg,args)=>{
         .addField("Rustafied.com - Hapis: ",data.status)
         .addField("Players: ",data.players+"/150")
         .addField("Rustafied.com - Long II: ",data2.status)
-        .addField("Players: " ,data2.players+"/92")
+        .addField("Players: " ,data2.players+"/200")
         .addField("Rustafied.com - Small: ","Unknown")
         .addField("Players: " ,data3.players+"/150")
         .addField("Rustafied.com - Medium II ",data4.status)
@@ -64,5 +64,5 @@ module.exports.run = (bot,msg,args)=>{
 }
 
 module.exports.help ={
-    name:"rustcheck"
+    name:"crustserver"
 }

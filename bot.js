@@ -4,6 +4,10 @@ const token = config.token;
 const prefix = config.prefix;
 const bot = new Discord.Client();
 const fs = require("fs");
+const ytdl = require('ytdl-core');
+
+
+
 bot.commands = new Discord.Collection();
 
 fs.readdir("./commands/", (er, files)=>{
@@ -25,6 +29,14 @@ fs.readdir("./commands/", (er, files)=>{
 
 bot.on("ready", member => {
 console.log("Bot Made by Babalon921 @𝔹𝕒𝕓𝕒𝕝𝕠𝕟⁹ ² ¹#0050");
+    bot.user.setStatus('available')
+    bot.user.setPresence({
+        game: {
+            name: 'RUST = 24/7',
+            type: "STREAMING",
+            url: "https://www.twitch.tv/directory/game/Rust"
+        }
+    });
 
 });
 bot.on("message", msg =>{

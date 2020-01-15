@@ -2,6 +2,8 @@ const Discord = require("discord.js")
 const SteamAPI = require("steamapi")
 const steam = new SteamAPI('4C627F0CCC1E62F8BCC8B682CFCE7AA3');
 
+
+
 module.exports.run = (bot,msg,args)=>{
     var steamraw = args[0]
     var fetch = new Discord.RichEmbed()
@@ -65,6 +67,10 @@ else{
         console.log(PlayerBans)
         steam.getUserLevel(id).then(PlayerLvl =>{
         console.log(PlayerLvl)
+        var plygame = summary.gameExtraInfo;
+        if(summary.gameExtraInfo == undefined){
+            var plygame = "None"
+        }
         var STEAMMSG = new Discord.RichEmbed()
             .setAuthor("S͟T͟E͟A͟M͟I͟N͟F͟O͟")
             .setThumbnail(summary.avatar.medium)
@@ -77,6 +83,7 @@ else{
             .addField("VAC Bans: ",PlayerBans.vacBans,true)
             .addField("Game Ban" ,PlayerBans.gameBans,true)
             .addField("Economy Ban" ,PlayerBans.economyBan,true)
+            .addField("Current Game: " ,plygame)
             .addField("Visibility State" ,summary.visibilityState)
             .setFooter("1-Private Account,3-Public Account")
             .setColor("#d3d3d3")
