@@ -4,12 +4,9 @@ const token = config.token;
 const prefix = config.prefix;
 const bot = new Discord.Client();
 const fs = require("fs");
-const ytdl = require('ytdl-core');
-
 
 
 bot.commands = new Discord.Collection();
-
 fs.readdir("./commands/", (er, files)=>{
     if(er) console.log(er);
     //Pops the js off the filename spliting where the . is
@@ -51,8 +48,9 @@ bot.on("message", msg =>{
     let commandsfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandsfile) commandsfile.run(bot,msg,args);
 
-});
+    
 
+});
 
 
 
