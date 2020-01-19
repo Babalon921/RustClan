@@ -7,12 +7,12 @@ module.exports.run = (bot,msg,args)=>{
     .setTitle("Insufficient Permissions")
     .setColor("#ff0000")
     .setTimestamp()
-    .setFooter('CB BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
+    .setFooter('RC BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
     var cantban = new Discord.RichEmbed()
     .setTitle("Insufficient Permissions To Kick User!")
     .setColor("#ff0000")
     .setTimestamp()
-    .setFooter('CB BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
+    .setFooter('RC BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
     
     let bUser = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
         if(!bUser) return msg.channel.send("Can't find user!");
@@ -38,7 +38,7 @@ module.exports.run = (bot,msg,args)=>{
       .setTitle("Check Incident in actionchannel ")
       .setColor("#0295ca")
       .setTimestamp()
-      .setFooter('CB BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
+      .setFooter('RC BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
       
         msg.delete().catch(O_o=>{});
         msg.channel.send(checkban)

@@ -23,7 +23,7 @@ var msgstop = new Discord.RichEmbed()
 .setTitle("Stoping Song!")
 .setColor("#ff0000")
 .setTimestamp()
-.setFooter('CB BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
+.setFooter('RC BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
 
 module.exports.run = (bot,msg,args)=>{
 var url = args.splice(1,2,3,4,5,6,7).join(" ")
@@ -43,7 +43,7 @@ var url = args.splice(1,2,3,4,5,6,7).join(" ")
    .setTitle("Playing: "+title)
    .setColor("#ff0000")
    .setTimestamp()
-   .setFooter('CB BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
+   .setFooter('RC BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
     
 
     switch(args[0]){
@@ -52,7 +52,7 @@ var url = args.splice(1,2,3,4,5,6,7).join(" ")
                 var server = servers[msg.guild.id];
                 server.dispatcher = connection.playStream(ytdl(server.queue[0],{filter: "audioonly"}));
                 server.queue.shift();
-                msg.channel.send(msgplay)
+                msg.channel.send(msgplay).then(newMessage => newMessage.delete(5000));
                 server.dispatcher.on("end",function(){
                     if(server.queue[1]){
                         play(connection,msg);
@@ -97,7 +97,7 @@ var url = args.splice(1,2,3,4,5,6,7).join(" ")
         case "skip":
             var server = servers[msg.guild.id];
             if(server.dispatcher)server.dispatcher.end()
-            msg.channel.send(msgskip)
+            msg.channel.send(msgskip).then(newMessage => newMessage.delete(5000));
         break;
         case "stop":
             var server = servers[msg.guild.id];
@@ -106,7 +106,7 @@ var url = args.splice(1,2,3,4,5,6,7).join(" ")
                     server.queue.splice(i,1);
                 }
             server.dispatcher.end();
-            msg.channel.send(msgstop)
+            msg.channel.send(msgstop).then(newMessage => newMessage.delete(5000));
             }
         break;
     }

@@ -62,7 +62,7 @@ module.exports.run = (bot,msg,args)=>{
             .addField("Wood Harvested:  ",rust_harvestw,true)
             .setFooter("1-Private Account,3-Public Account")
             .setColor("#d3d3d3")
-            msg.channel.send(RUSTINFO);
+            msg.channel.send(RUSTINFO).then(newMessage => newMessage.delete(120000));;
         })}catch(e){console.log(e),msg.channel.send("No Rust Info!")
         };
     

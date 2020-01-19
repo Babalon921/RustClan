@@ -12,7 +12,7 @@ module.exports.run = (bot,msg,args)=>{
     .addField("Checknum:","Use The code at the end of a profile (ex. steamurl/profile/yournum")
     .addField("Checkid:","Use The ID at the end of a profile (ex. steamurl/id/yourid")
     .setColor("#ff0000")
-    msg.channel.send(adminhelp)
+    msg.channel.send(adminhelp).then(newMessage => newMessage.delete(120000));
    
 }
 

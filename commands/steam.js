@@ -10,7 +10,7 @@ module.exports.run = (bot,msg,args)=>{
     .setTitle("Fetching Data (Please Wait 15s)")
     .setColor("#ff0000")
     .setTimestamp()
-    .setFooter('CB BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
+    .setFooter('RC BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
         
     if(isNaN(steamraw)){
         try{
@@ -46,7 +46,7 @@ module.exports.run = (bot,msg,args)=>{
             
             .setFooter("1-Private Account,3-Public Account")
             .setColor("#d3d3d3")
-            msg.channel.send(STEAMMSG);
+            msg.channel.send(STEAMMSG).then(newMessage => newMessage.delete(120000));;
         });
         });
         });  

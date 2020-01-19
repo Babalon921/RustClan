@@ -22,7 +22,7 @@ module.exports.run = (bot,msg,args)=>{
     .setTitle("Check Report In Reportchannel ")
     .setColor("#ff0000")
     .setTimestamp()
-    .setFooter('CB BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
+    .setFooter('RC BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
 
     msg.channel.send(checkreport)
     msg.delete().catch(O_o=>{});
