@@ -7,6 +7,7 @@ const request4 = new XMLHttpRequest();
 const request5 = new XMLHttpRequest();
 const request6 = new XMLHttpRequest();
 module.exports.run = (bot,msg,args)=>{
+    if(!msg.member.hasPermission("ADMINISTRATOR")) return;
     request.open("GET","https://api.battlemetrics.com/servers/433754")
     request.send();
     request.onload = function(){
@@ -69,7 +70,7 @@ module.exports.run = (bot,msg,args)=>{
 
         .setColor("#00ff00")
         .setTimestamp()
-        .setFooter('RC BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
+        .setFooter('RM BOT', 'https://cdn.discordapp.com/attachments/673186881516732465/673189495952244736/ezgif-6-6ca42269e32a.png');
         msg.channel.send(Rustserver)
     };
     };

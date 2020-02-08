@@ -5,12 +5,13 @@ const steam = new SteamAPI('4C627F0CCC1E62F8BCC8B682CFCE7AA3');
 
 
 module.exports.run = (bot,msg,args)=>{
+    if(!msg.member.hasPermission("ADMINISTRATOR")) return;
     var steamraw = args[0]
     var fetch = new Discord.RichEmbed()
     .setTitle("Fetching Data (Please Wait 15s)")
     .setColor("#ff0000")
     .setTimestamp()
-    .setFooter('RC BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
+    .setFooter('RM BOT', 'https://cdn.discordapp.com/attachments/673186881516732465/673189495952244736/ezgif-6-6ca42269e32a.png');
         
     if(isNaN(steamraw)){
         try{

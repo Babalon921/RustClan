@@ -4,9 +4,19 @@ const token = config.token;
 const prefix = config.prefix;
 const bot = new Discord.Client();
 const fs = require("fs");
-
+var mongoose = require('mongoose');
 
 bot.commands = new Discord.Collection();
+
+
+mongoose.connect('mongodb+srv://app:app921@discord-dkpzz.mongodb.net/ClanUsers?retryWrites=true&w=majority',{ useNewUrlParser: true },function (err) {
+    if (err) throw err;
+  
+    console.log('Successfully connected');
+  
+ });
+
+
 fs.readdir("./commands/", (er, files)=>{
     if(er) console.log(er);
     //Pops the js off the filename spliting where the . is
@@ -23,7 +33,6 @@ fs.readdir("./commands/", (er, files)=>{
     })
 });
 
-
 bot.on("ready", member => {
 console.log("Bot Made by Babalon921 @𝔹𝕒𝕓𝕒𝕝𝕠𝕟⁹ ² ¹#0050");
     bot.user.setStatus('available')
@@ -36,6 +45,10 @@ console.log("Bot Made by Babalon921 @𝔹𝕒𝕓𝕒𝕝𝕠𝕟⁹ ² ¹#0050"
     });
 
 });
+bot.on('guildMemberAdd', (guildMember) => {
+    guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Cadets"));
+})
+
 bot.on("message", msg =>{
     if(msg.author.bot) return;
     if(msg.channel.type === "dm") return;

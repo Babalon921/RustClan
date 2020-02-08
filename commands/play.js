@@ -23,9 +23,10 @@ var msgstop = new Discord.RichEmbed()
 .setTitle("Stoping Song!")
 .setColor("#ff0000")
 .setTimestamp()
-.setFooter('RC BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
+.setFooter('RM BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
 
 module.exports.run = (bot,msg,args)=>{
+if(!msg.member.hasPermission("ADMINISTRATOR")) return;
 var url = args.splice(1,2,3,4,5,6,7).join(" ")
     var opts = {
         maxResults: 1,
@@ -43,7 +44,7 @@ var url = args.splice(1,2,3,4,5,6,7).join(" ")
    .setTitle("Playing: "+title)
    .setColor("#ff0000")
    .setTimestamp()
-   .setFooter('RC BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
+   .setFooter('RM BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
     
 
     switch(args[0]){

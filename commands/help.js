@@ -1,16 +1,22 @@
 const Discord = require("discord.js");
 //Help Command
 module.exports.run = (bot,msg,args)=>{
-
+    
     var adminhelp = new Discord.RichEmbed()
     .setAuthor("~~~~~~~~~~~~~HELP~~~~~~~~~~~~~")
-    .setThumbnail("https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png")
+    .setThumbnail("https://cdn.discordapp.com/attachments/673186881516732465/673189495952244736/ezgif-6-6ca42269e32a.png")
     .setDescription("^ = permisson's needed!")
-    .addField("Prefix:","£")
-    .addField("Ban:","Ban's Member from the server (ex.>ban @banman {reason})")
-    .addField("Kick:","Kick's Member from the server (ex.>kick @kickman {reason})")
-    .addField("Checknum:","Use The code at the end of a profile (ex. steamurl/profile/yournum")
-    .addField("Checkid:","Use The ID at the end of a profile (ex. steamurl/id/yourid")
+    .addField("Prefix:","$")
+    .addField("Say:","Bot Says What You Want")
+    .addField("Crust:","Search User's Rust Game Data.")
+    .addField("Csteam:","Search User's Steam Data.")
+    .addField("Crustcheck:","Display Server info!")
+    .addField("Chacker:","Recent Hacker Banned!")
+    .addField("Wipe:","Remove's All Players From The Role '-Playing-' Ready For Wipe!")
+    .addField("Setup:","Prints Rules")
+    .addField("Appsetup:","Prints Application Info")
+    .addField("Register:","N/A")
+
     .setColor("#ff0000")
     msg.channel.send(adminhelp).then(newMessage => newMessage.delete(120000));
    
