@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 module.exports.run = (bot,msg,args)=>{
-    if(!msg.member.hasPermission("ADMINISTRATOR")) return;
+    if(!msg.member.hasPermission("ADMINISTRATOR")){return};
     var rules = new Discord.RichEmbed()
     .setTitle("-RULES-")
     .addField("1: ","Absolutely NO ear rape. The first offense will get you deafened for a day, the second a week, and the third a ban.")

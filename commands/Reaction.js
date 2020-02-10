@@ -2,7 +2,7 @@ var Discord = require("discord.js")
 var datetime = new Date();
 
 module.exports.run = (bot,msg,args)=>{
-    if(!msg.member.hasPermission("ADMINISTRATOR")) return;
+    if(!msg.member.hasPermission("ADMINISTRATOR")){return};
     msg.delete()
     var wipemsg = new Discord.RichEmbed()
     .setTitle("React To Above^ To Config or Set Play Status!")

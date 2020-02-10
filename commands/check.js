@@ -5,7 +5,7 @@ const SteamAPI = require("steamapi")
 const steam = new SteamAPI('4C627F0CCC1E62F8BCC8B682CFCE7AA3');
 mongoose.connect('mongodb+srv://app:app921@discord-dkpzz.mongodb.net/ClanUsers?retryWrites=true&w=majority');
 module.exports.run = async(bot,msg,args)=>{
-    if(!msg.member.hasPermission("ADMINISTRATOR")) return;
+    if(!msg.member.hasPermission("ADMINISTRATOR")){return};
     var mention = msg.mentions.users.first().id;
     DataRQ.findOne({ 'userID': mention }, function (err, data) {
         var Fail = new Discord.RichEmbed()

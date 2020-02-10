@@ -2,7 +2,6 @@
 var Discrod = require("discord.js")
 var Twitter = require('twitter');
 module.exports.run = (bot,msg,args)=>{
-if(!msg.member.hasPermission("ADMINISTRATOR")) return;
 var twclient = new Twitter({
         consumer_key: 'X0U5qYsbSxGCncbMD5HTqCy4P',
         consumer_secret: 'mpxZbKMQenaViNoLwvvXoGWv2RajDXoIYr8jH6O8iV0bwoOjky',

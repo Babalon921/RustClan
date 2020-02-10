@@ -5,7 +5,7 @@ const steam = new SteamAPI('4C627F0CCC1E62F8BCC8B682CFCE7AA3');
 
 
 module.exports.run = (bot,msg,args)=>{
-    if(!msg.member.hasPermission("ADMINISTRATOR")) return;
+    if(!msg.member.hasPermission("ADMINISTRATOR")){return};
     var steamraw = args[0]
     var fetch = new Discord.RichEmbed()
     .setTitle("Fetching Data (Please Wait 15s)")

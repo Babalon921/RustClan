@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 module.exports.run = (bot,msg,args)=>{
-    if(!msg.member.hasPermission("ADMINISTRATOR")) return;
+    if(!msg.member.hasPermission("ADMINISTRATOR")){return};
     var rules = new Discord.RichEmbed()
     .setTitle("-ROLES-")
     .addField("Location: ","Do -role <location> (UK,US,EU,AS)")

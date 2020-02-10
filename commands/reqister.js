@@ -28,7 +28,6 @@ var donemsg = new Discord.RichEmbed()
 module.exports.run = async(bot,msg,args)=>{
    
     await msg.delete();
-    if(msg.author.id != "348835638478503938")return;
     const filter = m => m.author.id === msg.author.id;
     msg.channel.send(Saymsg)
     msg.channel.awaitMessages(filter,{max: 1, time: 10000}).then(collected =>{
@@ -41,19 +40,21 @@ module.exports.run = async(bot,msg,args)=>{
     .setTimestamp()
     .setFooter('RM BOT', 'https://cdn.discordapp.com/attachments/673186881516732465/673189495952244736/ezgif-6-6ca42269e32a.png');
 
+    
     steam.resolve("https://steamcommunity.com/id/"+username).then(id =>{
     steam.getUserSummary(id).then(summary => {
     const Data = new DataRQ({
         _id: mongoose.Types.ObjectId(),
         username: msg.author.username,
         userID: msg.author.id,
-        steamID: username,
+        steamID: summary.nickname,
         url: summary.url,
         time: msg.createdAt
     });
     const error = false
     Data.save(function(err,user) {
     if (err) {
+    console.log(err)
     msg.channel.send(takenmsg)    
     }
     else{

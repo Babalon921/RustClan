@@ -7,7 +7,7 @@ const request4 = new XMLHttpRequest();
 const request5 = new XMLHttpRequest();
 const request6 = new XMLHttpRequest();
 module.exports.run = (bot,msg,args)=>{
-    if(!msg.member.hasPermission("ADMINISTRATOR")) return;
+    if(!msg.member.hasPermission("ADMINISTRATOR")){return};
     request.open("GET","https://api.battlemetrics.com/servers/433754")
     request.send();
     request.onload = function(){
