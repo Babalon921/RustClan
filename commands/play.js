@@ -26,7 +26,7 @@ var msgstop = new Discord.RichEmbed()
 .setFooter('RM BOT', 'https://cdn.discordapp.com/attachments/618037893373493250/647838953952509952/severf.png');
 
 module.exports.run = (bot,msg,args)=>{
-    if(!msg.member.hasPermission("ADMINISTRATOR")){return};
+    if (!msg.member.hasPermission("ADMINISTRATOR")) return 
 var url = args.splice(1,2,3,4,5,6,7).join(" ")
     var opts = {
         maxResults: 1,

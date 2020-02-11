@@ -2,7 +2,7 @@ var Discord = require("discord.js")
 
 
 module.exports.run = (bot,msg,args)=>{
-    if(!msg.member.hasPermission("ADMINISTRATOR")) return;
+    if (!msg.member.hasPermission("ADMINISTRATOR")) return 
     msg.delete()
     var wipemsg = new Discord.RichEmbed()
     .setTitle("💥Wipe Day💥(_NEWWIPE_)")

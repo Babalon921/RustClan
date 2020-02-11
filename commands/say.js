@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 // Say command
 module.exports.run = (bot,msg,args)=>{
     
-
+    if (!msg.member.hasPermission("ADMINISTRATOR")) return 
     var nocando = new Discord.RichEmbed()
     .setTitle("Insufficient Permissions")
     .setColor("#ff0000")
