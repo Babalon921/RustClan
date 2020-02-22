@@ -9,10 +9,10 @@ var mongoose = require('mongoose');
 bot.commands = new Discord.Collection();
 
 
-mongoose.connect('mongodb+srv://app:app921@discord-dkpzz.mongodb.net/ClanUsers?retryWrites=true&w=majority',{ useNewUrlParser: true },function (err) {
+mongoose.connect('mongodb+srv://app:app921@discord-dkpzz.mongodb.net/ClanUsers?retryWrites=true&w=majority',{ useUnifiedTopology:true },function (err) {
     if (err) throw err;
   
-    console.log('Successfully connected');
+    console.log('Successfully connected To MongoDB');
   
  });
 
@@ -70,28 +70,29 @@ bot.on("message", msg =>{
 bot.on('voiceStateUpdate', (oldMember, newMember) => {
     let newUserChannel = newMember.voiceChannel
     let oldUserChannel = oldMember.voiceChannel
-    const channel = bot.channels.find('name', "⚔incident⚔")
+    const channel = bot.channels.find(x => x.name == "⚔incident⚔")
     
     
     
   
     if(oldUserChannel === undefined && newUserChannel !== undefined) {
-       var JOIN = new Discord.RichEmbed()
-       .setTitle("User Joined Channel: "+newMember.voiceChannelID)
-       .setDescription("User Display Name: "+newMember.displayName)
-       .setColor("#ff0000")
-       .setTimestamp()
-       .setFooter('RM BOT', 'https://cdn.discordapp.com/attachments/673186881516732465/673189495952244736/ezgif-6-6ca42269e32a.png');
-       channel.send(JOIN)
-   
+        var joindata = '{"log":[{"Channel":"'+newMember.voiceChannelID+'","UserID":"'+newMember.id+'","State":"Joined","DisplayName":"'+oldMember.displayName+'"}]}';
+        var joinobj = JSON.parse(joindata);
+        var joinContent = JSON.stringify(joinobj);
+        fs.writeFile("./store/channellog.json", joinContent, 'utf8', function (err) {
+            if (err) {
+                console.log("Cant Write ERROR 1");
+        }
+        });
     } else if(newUserChannel === undefined){
-        var LEAVE = new Discord.RichEmbed()
-        .setTitle("User Left Channel: "+oldMember.voiceChannelID)
-        .setDescription("User Display Name: "+oldMember.displayName)
-        .setColor("#ff0000")
-        .setTimestamp()
-        .setFooter('RM BOT', 'https://cdn.discordapp.com/attachments/673186881516732465/673189495952244736/ezgif-6-6ca42269e32a.png');
-        channel.send(LEAVE)
+        var leavedata = '{"log":[{"Channel":"'+oldMember.voiceChannelID+'","UserID":"'+oldMember.id+'","State":"Left","DisplayName":"'+oldMember.displayName+'"}]}';
+        var leaveobj = JSON.parse(leavedata);
+        var leaveContent = JSON.stringify(leaveobj);
+        fs.writeFile("./store/channellog.json", leaveContent, 'utf8', function (err) {
+            if (err) {
+                console.log("Cant Write ERROR 2");
+        }
+        });
   
     }
   })
