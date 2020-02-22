@@ -46,8 +46,11 @@ console.log("Bot Made by Babalon921 @𝔹𝕒𝕓𝕒𝕝𝕠𝕟⁹ ² ¹#0050"
 
 });
 bot.on('guildMemberAdd', (guildMember) => {
+    var ServerID = guildMember.guild;
+    if(ServerID.id = "510858112627113995" || "617841696407027726"){
+
     guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Cadets"));
-})
+}})
 
 bot.on("message", msg =>{
     if(msg.author.bot) return;
@@ -64,7 +67,34 @@ bot.on("message", msg =>{
     
 
 });
-
+bot.on('voiceStateUpdate', (oldMember, newMember) => {
+    let newUserChannel = newMember.voiceChannel
+    let oldUserChannel = oldMember.voiceChannel
+    const channel = bot.channels.find('name', "⚔incident⚔")
+    
+    
+    
+  
+    if(oldUserChannel === undefined && newUserChannel !== undefined) {
+       var JOIN = new Discord.RichEmbed()
+       .setTitle("User Joined Channel: "+newMember.voiceChannelID)
+       .setDescription("User Display Name: "+newMember.displayName)
+       .setColor("#ff0000")
+       .setTimestamp()
+       .setFooter('RM BOT', 'https://cdn.discordapp.com/attachments/673186881516732465/673189495952244736/ezgif-6-6ca42269e32a.png');
+       channel.send(JOIN)
+   
+    } else if(newUserChannel === undefined){
+        var LEAVE = new Discord.RichEmbed()
+        .setTitle("User Left Channel: "+oldMember.voiceChannelID)
+        .setDescription("User Display Name: "+oldMember.displayName)
+        .setColor("#ff0000")
+        .setTimestamp()
+        .setFooter('RM BOT', 'https://cdn.discordapp.com/attachments/673186881516732465/673189495952244736/ezgif-6-6ca42269e32a.png');
+        channel.send(LEAVE)
+  
+    }
+  })
 
 
 bot.login(token)
